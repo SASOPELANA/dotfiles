@@ -1,0 +1,30 @@
+# Ignorar todo por defecto
+*
+
+# No ignorar el propio .gitignore y el README
+!/.gitignore
+!/README.md
+
+# --- AÑADE TUS DOTFILES AQUÍ ---
+# Descomenta o añade los archivos y carpetas que SÍ quieres subir.
+# Por ejemplo, para añadir tu .bashrc, añade la línea:
+# !/.bashrc
+#
+# Para añadir toda tu carpeta de configuración de nvim:
+# !/.config/nvim/
+
+# Descomentar estas líneas para ignorar el zsh
+!/zsh
+!/zsh/.zshrc
+
+# Descomentar para ignorar el fastfetch
+!/fastfetch/
+!/fastfetch/**
+
+# Descomentar para ignorar el nvim
+!/nvim
+!/nvim/**
+
+# Descomentar para ignorar el kitty
+!/kitty
+!/kitty/**
