@@ -21,3 +21,15 @@
 
 !/music/
 !/music/**
+
+!/zellij/
+!/zellij/**
+
+!/starship/
+!/starship/**
+
+!/wezterm/
+!/wezterm/**
+
+!/ghostty/
+!/ghostty/**
