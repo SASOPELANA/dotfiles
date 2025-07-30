@@ -33,3 +33,6 @@
 
 !/ghostty/
 !/ghostty/**
+
+!/httpie/
+!/httpie/**
