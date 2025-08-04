@@ -29,6 +29,10 @@ config.tab_max_width = 25
 config.show_tab_index_in_tab_bar = true
 config.switch_to_last_active_tab_when_closing_tab = true
 
+-- Tamaño inicial de la terminal
+config.initial_rows = 40
+config.initial_cols = 140
+
 -- Define el menú de lanzamiento
 config.launch_menu = {
 	{
