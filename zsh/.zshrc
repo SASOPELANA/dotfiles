@@ -52,6 +52,11 @@ alias icat='kitten icat'
 alias rmpcon='systemctl --user start mpd && echo "🎶 MPD encendido. ¡A rockear!"'
 alias rmpcoff='rmpc stop && systemctl --user stop mpd && echo "🛑 MPD apagado. Silencio absoluto."'
 
+# Alias para wallpaper
+walset() {
+  wal -i "$1" && ~/.config/i3/wal_colors.sh && i3-msg reload
+}
+
 # Variables de entorno 
 export PATH="$HOME/.local/bin:$PATH"
 

@@ -36,3 +36,6 @@
 
 !/httpie/
 !/httpie/**
+
+!/config/
+!/config/**
