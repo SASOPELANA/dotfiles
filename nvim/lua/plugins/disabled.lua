@@ -9,5 +9,4 @@ return {
     -- enabled = false,
     -- },
   },
-  { "nikvdp/ejs-syntax", ft = "ejs", enabled = false },
 }
