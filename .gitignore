@@ -1,0 +1,41 @@
+# Ignorar todo por defecto
+*
+
+# Pero no ignorar .gitignore ni README
+!/.gitignore
+!/README.md
+
+# Descomentar los que quieras subir:
+!/.zshrc
+!/.vimrc
+!/.gitconfig
+
+!/fastfetch/
+!/fastfetch/**
+
+!/nvim/
+!/nvim/**
+
+!/kitty/
+!/kitty/**
+
+!/music/
+!/music/**
+
+!/zellij/
+!/zellij/**
+
+!/starship/
+!/starship/**
+
+!/wezterm/
+!/wezterm/**
+
+!/ghostty/
+!/ghostty/**
+
+!/httpie/
+!/httpie/**
+
+!/config/
+!/config/**

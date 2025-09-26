@@ -1,0 +1,40 @@
+sw_volume: 50
+audio_device_state:1:PulseAudio
+state: stop
+current: 0
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:NA - NA - INTERWORLD - METAMORPHOSIS 30 Min Extended.mp3
+1:NA - NA - Mc Orsen - Warning (SPEED UP) 30 MIN - Rocky Dance - TikTok Remix.mp3
+2:NA - NA - Moondeity - Wake Up Bruh version(slowed)[1 HOUR].mp3
+3:demon gummies - is it still raining.mp3
+4:Isolate.exe - Crystals.mp3
+5:Hernan y La Champion's Liga, Callejero Fino, BM - Despójate Vol.2.mp3
+6:DVRST - Dream Space.mp3
+7:Joakim Karud - Dreams.mp3
+8:phonk.me, KIIXSHI - GHOST!.mp3
+9:g3ox_em - GigaChad Theme - Phonk House Version.mp3
+10:VØJ, Narvent - Memory Reboot.mp3
+11:MoonDeity - NEON BLADE.mp3
+12:ATLXS - PASSO BEM SOLTO - Slowed.mp3
+13:INTERWORLD - RAPTURE.mp3
+14:Dxrk ダーク - RAVE.mp3
+15:Jordan Elgie - Roses.mp3
+16:glichery - Sea Of Problems - Sped Up.mp3
+17:ONIMXRU, SMITHMANE - SHADOW.mp3
+18:NBSPLV - The Lost Soul Down - Slowed & Reverb.mp3
+19:Mareux - The Perfect Girl.mp3
+20:Mareux - The Perfect Girl - Instrumental.mp3
+21:Jordan Elgie - Timelapse.mp3
+22:MoonDeity - WAKE UP!.mp3
+23:NA - NA - Call Me ( Slowed + Reverb).mp3
+24:Nene Malo, Magenta, Dj Kairuz - Bailan Rochas y Chetas  El Garrote - Remix.mp3
+25:Hernan y La Champion's Liga, Callejero Fino, BM - Despójate Vol.2.mp3
+26:Hernan y La Champion's Liga, Callejero Fino, BM - Despójate Vol.2.mp3
+playlist_end
