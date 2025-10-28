@@ -26,7 +26,6 @@ return {
       "html",
       "javascript",
       "json",
-      "jsonc",
       "lua",
       "luadoc",
       "luap",
