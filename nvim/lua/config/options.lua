@@ -2,5 +2,5 @@
 vim.opt.relativenumber = false
 
 -- activar la corrección ortográfica en español
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = "es"

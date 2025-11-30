@@ -1,6 +1,6 @@
 -- ⚠️ Antes de usar esta configuración, instalá sql-formatter globalmente:
 -- npm install -g sql-formatter
--- Asegurate de que esté en tu $PATH
+-- Asegúrate de que esté en tu $PATH
 
 return {
   {

@@ -31,6 +31,8 @@ return {
       "luap",
       "markdown",
       "markdown_inline",
+      "bash",
+      "python",
       "printf",
       "python",
       "tsx",

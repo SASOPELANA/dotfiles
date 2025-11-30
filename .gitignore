@@ -39,3 +39,6 @@
 
 !/config/
 !/config/**
+
+!zsh/
+!zsh/**

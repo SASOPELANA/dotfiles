@@ -74,7 +74,7 @@ return {
   -- Kaganagawa Themes
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme("kanagawa") -- habilitar por defecto
@@ -104,7 +104,7 @@ return {
   -- OneDark theme
   {
     "navarasu/onedark.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require("onedark").setup({
