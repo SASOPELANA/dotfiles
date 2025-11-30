@@ -1,0 +1,101 @@
+# GET http://localhost:5000/api/cars
+http GET :5000/api/cars
+
+# http GET :5149/api/cars/{id}
+http GET :5149/api/cars/1
+
+# crear un nuevo carro
+# http POST :5149/api/cars
+http POST :5149/api/cars \
+    brand=Toyota \
+    model=Corolla \
+    price:=2000000 \
+    year:=2024
+
+# http PUT :5149/api/cars/{id}
+http PUT :5149/api/cars/1 \
+    brand=Toyota \
+    model=Corolla \
+    price:=2000000 \
+    year:=2024
+
+# Actualizar parcialmente
+# Actualizar el precio de un carro
+http PATCH :5149/api/cars/4 price:=3500000
+
+# borrar un carro con http DELETE :5149/api/cars/{id}
+http DELETE :5149/api/cars/4
+
+# con token 
+# Authorization: Bearer <TOKEN_AQUI>
+http GET :5149/api/cars \
+    Authorization:"Bearer TU_TOKEN_FACHERO"
+
+# post con token
+http POST :5149/api/cars \
+    Authorization:"Bearer TU_TOKEN_FACHERO" \
+    brand=Toyota \
+    model=Corolla \
+    price:=2000000 \
+    year:=2024
+
+
+# put con token
+http PUT :5149/api/cars/4 \
+    Authorization:"Bearer TU_TOKEN_FACHERO" \
+    brand=Ford \
+    model=Focus \
+    price:=3000000 \
+    year:=2023
+
+# delete con token
+http DELETE :5149/api/cars/4 \
+    Authorization:"Bearer TU_TOKEN_FACHERO"
+
+
+🧩 Asignaciones en HTTPie y qué significan
+En HTTPie existen 3 tipos de asignaciones:
+
+# string = 
+brand=Toyota
+model="Corolla X"
+
+# json
+"brand": "Toyota",
+"model": "Corolla X"
+
+
+# campo:=valor
+# números, booleanos, null, objetos, arrays
+
+price:=2000000
+year:=2025
+active:=true
+data:='{"a":1,"b":2}'
+tags:='["sedan","nuevo"]'
+
+# equivalente a json
+
+"price": 2000000,
+"year": 2025,
+"active": true,
+"data": {"a":1,"b":2},
+"tags": ["sedan","nuevo"]
+
+# Header:Valor
+
+Authorization:"Bearer TOKEN123"
+Content-Type:application/json
+Accept:application/json
+
+# ejemplo completo
+
+http POST :5149/api/cars \
+    Authorization:"Bearer TOKEN123" \
+    brand="Toyota" \
+    model="Corolla" \
+    price:=2000000 \
+    year:=2024 \
+    active:=true \
+    tags:='["nuevo","sedan"]'
+

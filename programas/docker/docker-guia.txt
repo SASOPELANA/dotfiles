@@ -1,0 +1,96 @@
+# Docker - Comandos básicos y útiles
+
+# Información general
+docker --version                  # Ver versión de Docker
+docker info                       # Información del daemon y configuración
+
+# Contenedores
+docker ps                          # Lista contenedores corriendo
+docker ps -a                       # Lista todos los contenedores
+docker run -d --name mi_contenedor imagen  # Ejecutar un contenedor en segundo plano
+docker stop CONTAINER_ID           # Detener un contenedor
+docker start CONTAINER_ID          # Iniciar un contenedor detenido
+docker restart CONTAINER_ID        # Reiniciar un contenedor
+docker rm CONTAINER_ID             # Borrar un contenedor
+docker logs CONTAINER_ID           # Ver logs de un contenedor
+docker rm $(docker ps -a -q)       # Borrar todos los contenedores
+docker stop $(sudo docker ps -aq)   # Detener todos los contenedores
+docker rm $(sudo docker ps -aq)    # Borrar todos los contenedores
+docker rm NAME                     # Borrar todos los contenedores con el nombre NAME
+docker exec -it CONTAINER_ID bash # Entrar a un contenedor interactivo
+docker run -p 5000:80 -d imagen     # Ejecutar un contenedor con puertos expuestos y en segundo plano
+docker run -p 3000:80 -p 5000:80 -d imagen   # Ejecutar un contenedor con varios puertos expuestos
+
+# forzar eleminación de contenedores
+sudo docker rm $(sudo docker ps -aq) -f
+
+# Imágenes
+docker images                      # Lista imágenes locales
+docker pull NOMBRE_IMAGEN          # Descargar una imagen desde Docker Hub
+docker build -t NOMBRE_IMAGEN .    # Construir imagen desde Dockerfile
+docker rmi IMAGE_ID                # Borrar imagen
+sudo docker rmi $(sudo docker images -aq)     # Borrar todas las imágenes
+
+# Volúmenes
+docker volume ls                   # Listar volúmenes
+docker volume create NOMBRE        # Crear volumen
+docker volume rm VOLUME_NAME       # Borrar volumen
+
+# Redes
+docker network ls                  # Listar redes
+docker network create NOMBRE       # Crear red
+docker network rm NOMBRE           # Borrar red
+
+# Limpiar
+docker container prune -f          # Borrar contenedores detenidos
+docker image prune -f              # Borrar imágenes no usadas
+docker volume prune -f             # Borrar volúmenes no usados
+docker system prune -a -f          # Borrar todo lo no usado (contenedores, imágenes, redes)
+
+# Inspección y detalles
+docker inspect CONTAINER_ID        # Información detallada de un contenedor
+docker stats                        # Estadísticas en tiempo real de los contenedores
+
+# Ejemplo rápido de MySQL con Docker
+docker run -d --name mysql_test \
+    -e MYSQL_ROOT_PASSWORD=root123 \
+    -e MYSQL_DATABASE=testdb \
+    -p 3306:3306 \
+    -v ~/docker/mysql-data:/var/lib/mysql \
+    mysql:latest
+
+# Ejemplo de MySQL con docker - con puerto y nombre 
+sudo docker run -d -p 3306:3306 --name mydatabase mysql
+
+# mysql con variables de entorno
+sudo docker run -d -p 3306:3306 --name mydatabase -e MYSQL_ROOT_PASSWORD=123456 mysql
+
+# Ver los contenedores con ID Y NOMBRE
+sudo docker ps --format='ID\t{{.ID}}\nNombre:\t{{.Names}}'
+
+# Levantar un sitio web con Docker y Nginx -> con :ro para que no se pueda modificar
+sudo docker run -d -p 80:80 --name website -v $(pwd):/usr/share/nginx/html:ro nginx
+
+# Levantar un sitio web con Docker y Nginx -> sin :ro para que se pueda modificar
+sudo docker run -d -p 80:80 --name website -v $(pwd):/usr/share/nginx/html nginx
+
+# Conectar a un contenedor de forma interactiva
+sudo docker exec -it CONTAINER_ID bash
+
+# Construir una imagen --> con Dockerfile
+sudo docker build -t sopetest .
+
+# Construir una imagen y subirla a Docker Hub con mi usuario --> sopekof
+sudo docker build -t sopekof/website .
+
+# primero se logea con docker login
+sudo docker push sopekof/website
+
+# Subir una imagen a Docker Hub
+sudo docker push sopekof/website
+
+# Descargar una imagen de Docker Hub de mi cuenta 
+sudo docker pull sopekof/website
+
+# Ejecutar un contenedor con una imagen de Docker Hub
+sudo docker run -d -p 3000:80 --name sitioweb sopekof/website

@@ -42,3 +42,6 @@
 
 !zsh/
 !zsh/**
+
+!programas/
+!programas/**
