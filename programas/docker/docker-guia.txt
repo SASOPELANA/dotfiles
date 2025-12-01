@@ -98,6 +98,11 @@ docker pull mcr.microsoft.com/mssql/server:2025-latest
 # Ejecutar un contenedor con una imagen de Docker Hub
 sudo docker run -d -p 3000:80 --name sitioweb sopekof/website
 
+# Mongo db - contenedor con un version expecifica
+docker run -d -p 27017:27017 --name mydatabase mongo:4.4
+
+
+
 # crear un contenedor con sqlserver 
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=micontraseña123456" -e "MSSQL_PID=Evaluation" -p 1433:1433  --name sqlserver --hostname sqlpreview -d mcr.microsoft.com/mssql/server:2025-latest
 
