@@ -1,0 +1,19 @@
+# comandos de pastel para colores
+
+pastel color crimson 
+
+pastel color random
+
+pastel color crimson | pastel complement
+
+pastel color crimson | pastel complement | pastel format hex
+
+pastel gradient black gray | pastel format rgb
+
+pastel gradient black gray | pastel format hex
+
+pastel random | pastel mix -f0.7 blue | pastel format hex
+
+pastel random | pastel mix -f0.7 blue | pastel format rgb
+
+pastel random | pastel mix -f0.7 yellow
