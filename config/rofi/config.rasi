@@ -16,7 +16,7 @@ configuration {
   }
 }
 
-@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+@theme "/usr/share/rofi/themes/fancy2.rasi.rasi"
 
 mainbox {
   children: [inputbar, listview];
