@@ -1,95 +1,120 @@
-# GET http://localhost:5000/api/cars
+# HTTPie - Guia rapida
+
+## GET
+
+```sh
 http GET :5000/api/cars
-
-# http GET :5149/api/cars/{id}
 http GET :5149/api/cars/1
+```
 
-# crear un nuevo carro
-# http POST :5149/api/cars
+## POST (crear un carro)
+
+```sh
 http POST :5149/api/cars \
     brand=Toyota \
     model=Corolla \
     price:=2000000 \
     year:=2024
+```
 
-# http PUT :5149/api/cars/{id}
+## PUT
+
+```sh
 http PUT :5149/api/cars/1 \
     brand=Toyota \
     model=Corolla \
     price:=2000000 \
     year:=2024
+```
 
-# Actualizar parcialmente
-# Actualizar el precio de un carro
+## PATCH (actualizar parcialmente)
+
+```sh
 http PATCH :5149/api/cars/4 price:=3500000
+```
 
-# borrar un carro con http DELETE :5149/api/cars/{id}
+## DELETE
+
+```sh
 http DELETE :5149/api/cars/4
+```
 
-# con token 
-# Authorization: Bearer <TOKEN_AQUI>
+## Con token
+
+```sh
 http GET :5149/api/cars \
     Authorization:"Bearer TU_TOKEN_FACHERO"
+```
 
-# post con token
+```sh
 http POST :5149/api/cars \
     Authorization:"Bearer TU_TOKEN_FACHERO" \
     brand=Toyota \
     model=Corolla \
     price:=2000000 \
     year:=2024
+```
 
-
-# put con token
+```sh
 http PUT :5149/api/cars/4 \
     Authorization:"Bearer TU_TOKEN_FACHERO" \
     brand=Ford \
     model=Focus \
     price:=3000000 \
     year:=2023
+```
 
-# delete con token
+```sh
 http DELETE :5149/api/cars/4 \
     Authorization:"Bearer TU_TOKEN_FACHERO"
+```
 
+## 🧩 Asignaciones en HTTPie y que significan
 
-🧩 Asignaciones en HTTPie y qué significan
 En HTTPie existen 3 tipos de asignaciones:
 
-# string = 
+### `string =`
+
+```text
 brand=Toyota
 model="Corolla X"
+```
 
-# json
-"brand": "Toyota",
-"model": "Corolla X"
+### JSON
 
+```json
+{"brand": "Toyota", "model": "Corolla X"}
+```
 
-# campo:=valor
-# números, booleanos, null, objetos, arrays
+### `campo:=valor`
 
+Numeros, booleanos, null, objetos, arrays.
+
+```text
 price:=2000000
 year:=2025
 active:=true
 data:='{"a":1,"b":2}'
 tags:='["sedan","nuevo"]'
+```
 
-# equivalente a json
+Equivalente a JSON:
 
-"price": 2000000,
-"year": 2025,
-"active": true,
-"data": {"a":1,"b":2},
-"tags": ["sedan","nuevo"]
+```json
+{"price": 2000000, "year": 2025, "active": true, "data": {"a":1,"b":2}, "tags": ["sedan","nuevo"]}
+```
 
-# Header:Valor
+### `Header:Valor`
 
+```text
 Authorization:"Bearer TOKEN123"
 Content-Type:application/json
 Accept:application/json
+```
 
-# ejemplo completo
+## Ejemplo completo
 
+```sh
 http POST :5149/api/cars \
     Authorization:"Bearer TOKEN123" \
     brand="Toyota" \
@@ -98,4 +123,4 @@ http POST :5149/api/cars \
     year:=2024 \
     active:=true \
     tags:='["nuevo","sedan"]'
-
+```
