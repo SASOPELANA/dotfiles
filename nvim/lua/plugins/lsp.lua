@@ -24,16 +24,17 @@ return {
     servers = {
       pyright = { enable = true }, -- Habilitar pyright para Python
       tsserver = { enable = true }, -- Habilitar tsserver para TypeScript/JavaScript
-      omnisharp = { enable = true }, -- Habilitar omnisharp para C#
+      --omnisharp = { enable = true }, -- Habilitar omnisharp para C#
       clangd = { enable = true }, -- Habilitar clangd para C++
       cssls = { enable = true }, -- Habilitar cssls para CSS
       html = { enable = true }, -- Habilitar html para HTML.
       lua_ls = { enable = true }, -- Habilitar lua_ls para Lua
       rust_analyzer = { enable = true }, -- Habilitar rust_analyzer para Rust
-      gopls = { enable = true }, -- Habilitar gopls para Go
+      --gopls = { enable = true }, -- Habilitar gopls para Go
       sqlls = { enable = true }, -- Habilitar sqlls para SQL
       vimls = { enable = true }, -- Habilitar vimls para Vim Script
       astro = { enable = true }, -- Habilitar astro
+      jsonls = { enable = true, mason = true }, -- Habilitar jsonls para JSON
       tailwindcss = { enable = true },
       -- ... otros lenguajes y herramientas
       harper_ls = false, -- Desactivar comentarios de harper lsp
