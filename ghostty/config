@@ -15,3 +15,8 @@ font-family-italic = "JetBrainsMono Nerd Font"
 font-family-bold-italic = "JetBrainsMono Nerd Font"
 custom-shader = ./shaders/cursor_blaze_tapered.glsl
 custom-shader = ./shaders/debug_cursor_animated.glsl
+
+# Desactivar ligaduras
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
