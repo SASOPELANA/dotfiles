@@ -1,163 +1,114 @@
--- Importa la API de configuración de WezTerm.
--- Nos permite acceder a wezterm.font(), wezterm.action(), etc.
 local wezterm = require("wezterm")
-
--- Crea una configuración de WezTerm usando el constructor recomendado.
--- Esto permite que WezTerm valide correctamente las opciones de configuración.
 local config = wezterm.config_builder()
 
--- ============================================================
--- TEMA ELDRITCH
--- ============================================================
-
--- Importa nuestro tema Eldritch desde:
--- ~/.config/wezterm/themes/Eldritch.lua
+-- Tema Eldritch
 local eldritch = require("themes.Eldritch")
-
--- Aplica los colores definidos dentro del tema.
 config.colors = eldritch.colors
 
--- ============================================================
--- VENTANA
--- ============================================================
-
--- Hace que el fondo de WezTerm sea 90% opaco.
--- 1.0 = completamente opaco
--- 0.0 = completamente transparente
+-- Transparencia de la ventana
 config.window_background_opacity = 0.9
 
--- ============================================================
--- FUENTE
--- ============================================================
-
--- Define el tamaño de la fuente en puntos.
+-- Fuente y tamaño
 config.font_size = 11
-
--- Usa JetBrainsMono Nerd Font.
--- DemiBold hace que la fuente tenga un poco más de peso.
--- italic = true hace que WezTerm use la variante cursiva.
 config.font = wezterm.font("JetBrainsMono Nerd Font", {
 	weight = "DemiBold",
 	italic = true,
 })
 
--- ============================================================
--- CURSOR
--- ============================================================
-
--- Tiempo de parpadeo del cursor en milisegundos.
--- 700 = 0.7 segundos.
+-- Cursor en bloque con parpadeo
 config.cursor_blink_rate = 700
-
--- Cursor en forma de bloque que parpadea.
 config.default_cursor_style = "BlinkingBlock"
-
--- Animación lineal al aparecer el cursor.
 config.cursor_blink_ease_in = "Linear"
-
--- Animación lineal al desaparecer el cursor.
 config.cursor_blink_ease_out = "Linear"
 
--- ============================================================
--- BARRA DE PESTAÑAS
--- ============================================================
-
--- Activa la barra de pestañas de WezTerm.
+-- Barra de pestañas
 config.enable_tab_bar = true
-
--- Si solamente existe una pestaña, oculta la barra.
--- Esto deja más espacio vertical para la terminal.
 config.hide_tab_bar_if_only_one_tab = true
-
--- Utiliza la barra de pestañas con el estilo moderno/fancy.
 config.use_fancy_tab_bar = true
-
--- Limita el ancho máximo de cada pestaña.
 config.tab_max_width = 25
-
--- Muestra el número de la pestaña.
 config.show_tab_index_in_tab_bar = true
-
--- Cuando cierras una pestaña, vuelve a la última pestaña activa.
 config.switch_to_last_active_tab_when_closing_tab = true
+config.tab_bar_at_bottom = true
 
--- ============================================================
--- TAMAÑO INICIAL
--- ============================================================
+-- Colores de la barra de pestañas
+config.colors.tab_bar = {
+	active_tab = {
+		bg_color = "#37f499",
+		fg_color = "#212337",
+	},
 
--- Define 104 columnas como tamaño inicial de WezTerm.
---
--- IMPORTANTE:
--- Esto NO significa 104 píxeles ni 104% de la pantalla.
--- Son 104 celdas/caracteres de terminal.
---
--- En tu PC lo estás utilizando como un tamaño inicial que
--- funciona bien con tu configuración de niri.
+	inactive_tab = {
+		bg_color = "#323449",
+		fg_color = "#04d1f9",
+	},
+}
+
+-- Estilo del marco de la ventana
+config.window_frame = {
+	font = wezterm.font("JetBrainsMono Nerd Font", {
+		weight = "Bold",
+	}),
+
+	font_size = 9,
+	active_titlebar_bg = "none",
+	inactive_titlebar_bg = "none",
+}
+
+-- Muestra el nombre del programa en cada pestaña
+wezterm.on("format-tab-title", function(tab)
+	return {
+		{ Text = "  " .. "  " .. tab.active_pane.title .. "   " },
+	}
+end)
+
+-- Tamaño inicial en columnas
 config.initial_cols = 104
 
--- No fijamos initial_rows.
--- Dejamos que el entorno/compositor determine la altura.
--- Esto ayuda a que niri pueda gestionar verticalmente la ventana.
-
--- ============================================================
--- WAYLAND
--- ============================================================
-
--- Fuerza explícitamente el backend Wayland.
---
--- Tu sesión es niri (Wayland), así que tiene sentido dejarlo
--- explícito aunque las versiones actuales de WezTerm ya pueden
--- utilizar Wayland automáticamente.
+-- Fuerza el backend Wayland
 config.enable_wayland = true
 
--- ============================================================
--- MENÚ DE LANZAMIENTO
--- ============================================================
-
--- Define comandos adicionales que aparecen en el launcher
--- de WezTerm.
+-- Entrada disponible en el launcher
 config.launch_menu = {
-
-	-- Primera entrada del launcher.
 	{
-		-- Nombre que aparecerá en el menú.
 		label = "Debian Trixie",
-
-		-- Shell que se ejecutará al seleccionar esta entrada.
 		args = { "/bin/zsh" },
 	},
 }
 
--- ============================================================
--- ATAJOS
--- ============================================================
-
--- Define los atajos personalizados de WezTerm.
+-- Atajos personalizados
 config.keys = {
 
-	-- CTRL + ALT + H
+	-- Ctrl + Alt + H: dividir verticalmente
 	{
 		key = "h",
 		mods = "CTRL|ALT",
-
-		-- Divide el panel verticalmente.
-		-- La división pertenece al dominio/panel actual.
 		action = wezterm.action.SplitVertical({
 			domain = "CurrentPaneDomain",
 		}),
 	},
 
-	-- CTRL + ALT + V
+	-- Ctrl + Alt + V: dividir horizontalmente
 	{
 		key = "v",
 		mods = "CTRL|ALT",
-
-		-- Divide el panel horizontalmente.
 		action = wezterm.action.SplitHorizontal({
 			domain = "CurrentPaneDomain",
 		}),
 	},
+
+	-- Ctrl + Shift + ←: pestaña anterior
+	{
+		key = "LeftArrow",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+
+	-- Ctrl + Shift + →: pestaña siguiente
+	{
+		key = "RightArrow",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
 }
 
--- Devuelve toda la configuración a WezTerm.
 return config
