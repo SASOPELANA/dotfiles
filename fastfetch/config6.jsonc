@@ -22,64 +22,12 @@
     "break",
     {
       "type": "custom",
-      "format": "┌{$1} {#1}System Information{#} {$1}┐",
+      "format": "{$1} \u001b[1;36mSystem Information{#} {$1}",
     },
     "break",
     {
-      "key": "OS           ",
-      "keyColor": "red",
-      "type": "os",
-    },
-    {
-      "key": "Machine      ",
-      "keyColor": "green",
-      "type": "host",
-    },
-    {
-      "key": "Kernel       ",
-      "keyColor": "magenta",
-      "type": "kernel",
-    },
-    {
-      "key": "Uptime       ",
-      "keyColor": "red",
-      "type": "uptime",
-    },
-    {
-      "key": "Resolution   ",
-      "keyColor": "yellow",
-      "type": "display",
-      "compactType": "original-with-refresh-rate",
-    },
-    {
-      "key": "WM           ",
-      "keyColor": "blue",
-      "type": "wm",
-    },
-    {
-      "key": "DE           ",
-      "keyColor": "green",
-      "type": "de",
-    },
-    {
-      "key": "Shell        ",
-      "keyColor": "cyan",
-      "type": "shell",
-    },
-    {
-      "type": "icons",
-      "key": "ICON THEME   ",
-      "keyColor": "yellow",
-    },
-    {
-      "type": "font",
-      "key": "FONT         ",
-      "keyColor": "black",
-    },
-    {
-      "key": "Terminal     ",
-      "keyColor": "red",
-      "type": "terminal",
+      "type": "custom",
+      "format": "    ── \u001b[1;36mHardware{#} ──────────────────────────────────────",
     },
     {
       "key": "CPU          ",
@@ -97,19 +45,14 @@
       "type": "memory",
     },
     {
+      "key": "Swap         ",
+      "keyColor": "red",
+      "type": "swap",
+    },
+    {
       "key": "Motherboard  ",
       "keyColor": "blue",
       "type": "board",
-    },
-    {
-      "key": "Locale       ",
-      "keyColor": "cyan",
-      "type": "locale",
-    },
-    {
-      "key": "Packages     ",
-      "keyColor": "green",
-      "type": "packages",
     },
     {
       "key": "BIOS         ",
@@ -117,9 +60,9 @@
       "type": "bios",
     },
     {
-      "key": "Swap         ",
-      "keyColor": "red",
-      "type": "swap",
+      "key": "Chassis      ",
+      "keyColor": "green",
+      "type": "chassis",
     },
     {
       "key": "Disk         ",
@@ -128,9 +71,110 @@
       "folders": "/",
     },
     {
-      "key": "Date/Time    ",
+      "key": "Sound        ",
+      "keyColor": "cyan",
+      "type": "sound",
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "    ── \u001b[1;36mSystem{#} ────────────────────────────────────────",
+    },
+    {
+      "key": "OS           ",
+      "keyColor": "red",
+      "type": "os",
+    },
+    {
+      "key": "Kernel       ",
       "keyColor": "magenta",
-      "type": "datetime",
+      "type": "kernel",
+    },
+    {
+      "key": "Uptime       ",
+      "keyColor": "red",
+      "type": "uptime",
+    },
+    {
+      "key": "Login Mgr    ",
+      "keyColor": "green",
+      "type": "lm",
+    },
+    {
+      "key": "Packages     ",
+      "keyColor": "green",
+      "type": "packages",
+    },
+    {
+      "key": "Locale       ",
+      "keyColor": "cyan",
+      "type": "locale",
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "    ── \u001b[1;36mDesktop{#} ───────────────────────────────────────",
+    },
+    {
+      "key": "Shell        ",
+      "keyColor": "cyan",
+      "type": "shell",
+    },
+    {
+      "key": "Terminal     ",
+      "keyColor": "red",
+      "type": "terminal",
+    },
+    {
+      "key": "Term Font    ",
+      "keyColor": "yellow",
+      "type": "terminalfont",
+    },
+    {
+      "key": "WM           ",
+      "keyColor": "blue",
+      "type": "wm",
+    },
+    {
+      "key": "Icon Theme   ",
+      "keyColor": "yellow",
+      "type": "icons",
+    },
+    {
+      "key": "Font         ",
+      "keyColor": "magenta",
+      "type": "font",
+    },
+    {
+      "key": "Theme        ",
+      "keyColor": "blue",
+      "type": "theme",
+    },
+    {
+      "key": "WM Theme     ",
+      "keyColor": "cyan",
+      "type": "wmtheme",
+    },
+    {
+      "key": "Wallpaper    ",
+      "keyColor": "green",
+      "type": "wallpaper",
+    },
+    {
+      "key": "Cursor       ",
+      "keyColor": "magenta",
+      "type": "cursor",
+    },
+    {
+      "key": "Resolution   ",
+      "keyColor": "yellow",
+      "type": "display",
+      "compactType": "original-with-refresh-rate",
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "    ── \u001b[1;36mNetwork{#} ───────────────────────────────────────",
     },
     {
       "key": "Local IP     ",
@@ -139,27 +183,26 @@
       "compact": true,
     },
     {
-      "key": "Public IP    ",
+      "key": "Weather      ",
       "keyColor": "cyan",
-      "type": "publicip",
-      "timeout": 1000,
+      "type": "weather",
+      "timeout": 3000,
     },
     {
-      "type": "weather",
-      "key": "WEATHER      ",
-      "timeout": 3000,
-      "keyColor": "cyan",
+      "key": "Now Playing  ",
+      "keyColor": "green",
+      "type": "media",
+      "format": "{?artist}{artist} - {?}{title:-40} ",
+    },
+    {
+      "key": "Date/Time    ",
+      "keyColor": "magenta",
+      "type": "datetime",
     },
     "break",
     {
       "type": "custom",
-      "format": "└{$1}────────────────────{$1}┘",
-    },
-    "break",
-    {
-      "type": "colors",
-      "paddingLeft": 34,
-      "symbol": "circle",
+      "format": "{$1}────────────────────────{$1}",
     },
   ],
 }
