@@ -2,9 +2,12 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "/home/sergio/.config/fastfetch/ascii/logo.txt",
+    "source": "/home/sope/.config/fastfetch/ascii/logo.txt",
     "type": "file",
     "position": "left",
+    "color": {
+      "1": "red",
+    },
     "padding": {
       "top": 5,
       "right": 4,
@@ -17,7 +20,7 @@
   "modules": [
     {
       "type": "custom", // HardwareInfo
-      "format": "• {#green}SYSTEM INFORMATION",
+      "format": "{#green}☭ SYSTEM INFORMATION",
     },
     {
       "type": "host",
@@ -29,6 +32,11 @@
       "type": "chassis",
       "key": "COMPUTER TYPE",
       "keyColor": "green",
+    },
+    {
+      "key": "MOTHERBOARD",
+      "keyColor": "green",
+      "type": "board",
     },
     {
       "type": "cpu",
@@ -58,7 +66,7 @@
     },
     {
       "type": "custom", // SoftwareInfo
-      "format": "• {#red}SOFTWARE INFORMATION",
+      "format": "{#red}☭ SOFTWARE INFORMATION",
     },
     {
       "type": "os",
@@ -89,7 +97,7 @@
     },
     {
       "type": "custom", // DisplayInfo
-      "format": "• {#blue}DISPLAY INFORMATION",
+      "format": "{#blue}☭ DISPLAY INFORMATION",
     },
     {
       "type": "de",
@@ -120,7 +128,7 @@
     },
     {
       "type": "custom", // DesignInfo
-      "format": "• {#yellow}DESIGN INFORMATION",
+      "format": "{#yellow}☭ DESIGN INFORMATION",
     },
     {
       "type": "wallpaper",
@@ -154,12 +162,12 @@
     },
     {
       "type": "custom", // OtherInfo
-      "format": "• {#cyan}VARIOUS INFORMATION",
+      "format": "{#cyan}☭ VARIOUS INFORMATION",
     },
     {
       "type": "media",
       "key": "NOW PLAYING",
-      "format": "{?artist}{artist} - {?}{title:-36} ",
+      "format": "{?artist}{artist} - {?}{title:-50} ",
       "keyColor": "cyan",
     },
     {
